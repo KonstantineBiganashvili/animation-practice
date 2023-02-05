@@ -1,0 +1,56 @@
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: grey;
+}
+
+section {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: -1;
+}
+
+button {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  border: none;
+  color: white;
+  background: rgb(28, 28, 28);
+  transition: background 0.75s ease-out;
+  cursor: pointer;
+}
+
+button:hover {
+  background: rgb(50, 50, 50);
+}
+
+nav {
+  width: 100vw;
+  min-height: 10vh;
+  background-color: rgb(40, 40, 40);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  opacity: 1;
+  transition: all 1s ease-out 0.5s;
+}
+
+.nav-slide {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+p {
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+.fade {
+  opacity: 0;
+}

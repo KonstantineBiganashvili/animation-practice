@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(260deg, #6a9eec, #65c0d3);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: white;
+  color: black;
+  padding: 5rem;
+  border-radius: 2rem;
+}
+
+.home,
+.notifications,
+.messages {
+  display: flex;
+  padding: 2rem;
+}
+
+.home-title,
+.notifications-title,
+.messages-title {
+  padding-left: 2rem;
+}
+
+.notification-svg,
+.messages-svg {
+  overflow: visible;
+}
