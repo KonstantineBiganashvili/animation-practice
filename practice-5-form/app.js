@@ -35,7 +35,7 @@ containers.forEach((container) => {
       tl.fromTo(
         line,
         { attr: { d: start } },
-        { attr: { d: end }, ease: 'power2.easeOut', duration: 0.75 }
+        { attr: { d: end }, ease: 'Power2.easeOut', duration: 0.75 }
       );
       tl.to(line, { attr: { d: start }, ease: 'elastic.out(3, 0.5)' }, '<50%');
       //Placeholder
@@ -46,7 +46,7 @@ containers.forEach((container) => {
           left: 0,
           scale: 0.7,
           duration: 0.5,
-          ease: 'power2.easeOut',
+          ease: 'Power2.easeOut',
         },
         '<'
       );
@@ -67,7 +67,7 @@ form.addEventListener('click', () => {
           left: 0,
           scale: 1,
           duration: 0.5,
-          ease: 'power2.easeOut',
+          ease: 'Power2.easeOut',
         });
       }
     }
@@ -109,3 +109,68 @@ form.addEventListener('click', () => {
     });
   });
 });
+
+// Checkbox animation fill
+const checkbox = document.querySelector('.checkbox');
+const tl2 = gsap.timeline({
+  defaults: { duration: 0.5, ease: 'Power2.easeOut' },
+});
+const tickMarkPath = document.querySelector('.tick-mark path');
+const pathLength = tickMarkPath.getTotalLength();
+
+gsap.set(tickMarkPath, {
+  strokeDashoffset: pathLength,
+  strokeDasharray: pathLength,
+});
+
+checkbox.addEventListener('click', () => {
+  if (checkbox.checked) {
+    tl2.to('.checkbox-fill', { top: '0%' });
+    tl2.fromTo(
+      tickMarkPath,
+      { strokeDashoffset: pathLength },
+      { strokeDashoffset: 0 },
+      '<50%'
+    );
+    tl2.to('.checkbox-label', { color: '#6391e8' }, '<');
+  } else {
+    tl2.to('.checkbox-fill', { top: '100%' });
+    tl2.fromTo(
+      tickMarkPath,
+      { strokeDashoffset: 0 },
+      { strokeDashoffset: pathLength },
+      '<50%'
+    );
+    tl2.to('.checkbox-label', { color: '#c5c5c5' }, '<');
+  }
+});
+
+// Character
+gsap.set('#eye', { transformOrigin: 'center' });
+
+gsap.fromTo(
+  '#eye',
+  { scaleY: 1 },
+  {
+    scaleY: 0.3,
+    duration: 1.5,
+    repeat: -1,
+    yoyo: true,
+    repeatDelay: 0.5,
+    ease: 'Power2.easeOut',
+  }
+);
+
+gsap.fromTo(
+  '#eyebrow',
+  { y: 0 },
+  {
+    y: -1,
+    repeat: -1,
+    yoyo: true,
+    repeatDelay: 0.5,
+    duration: 1.5,
+    ease: 'Power2.easeOut',
+  },
+  '<'
+);
