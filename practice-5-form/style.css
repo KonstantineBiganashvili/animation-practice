@@ -138,3 +138,33 @@ button {
   transform: translateY(30%);
   transform-origin: bottom;
 }
+
+.submitted {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #777474;
+  font-size: 1rem;
+  pointer-events: none;
+  text-align: center;
+  opacity: 0;
+}
+
+@media screen and (max-width: 1040px) {
+  form {
+    width: 90vw;
+    min-height: 90vh;
+    flex-direction: column;
+    padding: 8rem 3rem;
+  }
+
+  .contact-left {
+    flex: 0;
+    margin-bottom: 4rem;
+  }
+
+  #character {
+    left: 50vw
+  }
+}
